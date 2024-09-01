@@ -1,0 +1,15 @@
+declare a1 entero;
+declare x1y real;
+declare x_3 cadena;
+declare x1234567890 logico;
+declare a123yx0 fecha;
+declare 1x entero;
+declare x&1 real;
+declare x1234567890123456 cadena;
+declare a 1 lógico;
+declare valid_1, _invalid1, valid_2, invalid2& entero;
+declare entero;
+declare a2,a3, cadena
+declare x1 cadena
+declare valid1, invalid2& real;
+declare valid1, valid2, valid3 real;

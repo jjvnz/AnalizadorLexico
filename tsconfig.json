@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "es2016"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "module": "commonjs"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
