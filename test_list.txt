@@ -13,3 +13,7 @@ declare a2,a3, cadena
 declare x1 cadena
 declare valid1, invalid2& real;
 declare valid1, valid2, valid3 real;
+declare v1, v1 entero;
+declare v1, v1 cadena;
+declare v1, v1 fecha;
+declare v1, v1 logico;
