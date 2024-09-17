@@ -1,26 +1,37 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Importa el plugin
 
 module.exports = {
     entry: {
-        main: './src/scripts/main.ts',          // Punto de entrada para el archivo main.ts
-        domHandler: './src/scripts/domHandler.ts', // Punto de entrada para el archivo domHandler.ts
+        main: './src/scripts/main.ts',
+        domHandler: './src/scripts/domHandler.ts',
     },
     output: {
-        filename: '[name].js', // Genera main.js y domHandler.js usando los nombres de entrada
-        path: path.resolve(__dirname, 'dist'), // Directorio de salida para los archivos compilados
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist'),
     },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,          // Aplica ts-loader a archivos .ts y .tsx
+                test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,  // Excluye la carpeta node_modules
+                exclude: /node_modules/,
             },
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'], // Permite importar archivos con estas extensiones sin especificarlas
+        extensions: ['.tsx', '.ts', '.js'],
     },
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development', 
-    // Usa 'production' cuando estés desplegando, y 'development' cuando estés desarrollando
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './public/style.css', to: 'style.css' }, // Copia el CSS al directorio dist
+            ],
+        }),
+    ],
 };
