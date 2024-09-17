@@ -1,4 +1,4 @@
-import { variableData, processLine, resetVariableData } from '../src/main';
+import { variableData, processLine, resetVariableData } from '../scripts/main';
 
 describe('VariableData and processLine Functionality with Duplicates Check', () => {
 
