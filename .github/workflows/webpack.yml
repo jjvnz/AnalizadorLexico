@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Usa la versión de Node.js que prefieras
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build for production
+        run: npm run build  # Usa el script de build para producción
+
+      - name: Run tests
+        run: npm test
+
+      # Opcionalmente, podrías agregar pasos para desplegar el código
