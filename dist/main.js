@@ -1,1 +1,0 @@
-(()=>{"use strict";var a;(a={}).variableData=void 0,a.variableData={entero:[],real:[],cadena:[],logico:[],fecha:[]}})();
