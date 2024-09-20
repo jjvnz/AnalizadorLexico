@@ -3,31 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulación de Analizador Léxico</title>
+    <title>Simulación de Analizador Léxico - IDE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Analizador Léxico de Declaraciones</h1>
-        <textarea id="inputText" placeholder="Ingrese las sentencias aquí..."></textarea>
-        <button id="validateBtn">Validar</button>
-        <div id="result"></div>
-        
-        <!-- Select para elegir el tipo de dato a filtrar -->
-        <label for="dataTypeSelect">Filtrar por tipo de dato:</label>
-        <select id="dataTypeSelect">
-            <option value="">Selecciona un tipo</option>
-            <option value="entero">Entero</option>
-            <option value="real">Real</option>
-            <option value="cadena">Cadena</option>
-            <option value="logico">Lógico</option>
-            <option value="fecha">Fecha</option>
-        </select>
-        <button id="filterBtn">Filtrar</button>
-        <div id="filterResult"></div>
+    <div class="ide-container">
+        <!-- Barra lateral con opciones -->
+        <div class="sidebar">
+            <h2>Herramientas</h2>
+            <label for="dataTypeSelect">Filtrar por tipo de dato:</label>
+            <select id="dataTypeSelect">
+                <option value="">Selecciona un tipo</option>
+                <option value="entero">Entero</option>
+                <option value="real">Real</option>
+                <option value="cadena">Cadena</option>
+                <option value="logico">Lógico</option>
+                <option value="fecha">Fecha</option>
+            </select>
+            <button id="filterBtn">Filtrar</button>
+        </div>
+
+        <!-- Panel principal -->
+        <div class="main-panel">
+            <!-- Área de edición de código -->
+            <div class="editor">
+                <h1>Analizador Léxico de Declaraciones</h1>
+                <textarea id="inputText" placeholder="Escriba sus sentencias aquí..." spellcheck="false"></textarea>
+                <button id="validateBtn">Validar</button>
+            </div>
+
+            <!-- Consola de resultados -->
+            <div class="console">
+                <h2>Consola de Resultados</h2>
+                <div id="result"></div>
+                <div id="filterResult"></div>
+            </div>
+        </div>
     </div>
+
     <!--In development point to the correct folder path '/dist'-->
     <script src="main.js"></script>
-    <script src="domHandler.js"></script>    
+    <script src="domHandler.js"></script>
 </body>
 </html>
