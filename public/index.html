@@ -25,10 +25,13 @@
 
         <!-- Panel principal -->
         <div class="main-panel">
-            <!-- Área de edición de código -->
+            <!-- Área de edición de código con números de línea -->
             <div class="editor">
                 <h1>Analizador Léxico de Declaraciones</h1>
-                <textarea id="inputText" placeholder="Escriba sus sentencias aquí..." spellcheck="false"></textarea>
+                <div class="editor-container">
+                    <div id="lineNumbers"></div>
+                    <textarea id="inputText" placeholder="Escriba sus sentencias aquí..." spellcheck="false"></textarea>
+                </div>
                 <button id="validateBtn">Validar</button>
             </div>
 

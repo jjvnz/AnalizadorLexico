@@ -1,17 +1,19 @@
 import { VariableData, processLine, resetVariableData, variableData } from './main';
 
-/**
- * Valida y procesa el texto ingresado por el usuario al hacer clic en el botón 'validateBtn'.
- * 
- * - Toma el texto de entrada, lo divide en líneas.
- * - Procesa cada línea con la función `processLine`.
- * - Inserta el resultado en el elemento HTML con ID 'result'.
- * 
- * @event click
- */
+// Función para actualizar los números de línea
+function updateLineNumbers(inputText: HTMLTextAreaElement, lineNumbers: HTMLElement): void {
+    const lines = inputText.value.split('\n').length;
+    let lineNumbersContent = '';
+    for (let i = 1; i <= lines; i++) {
+        lineNumbersContent += `<div>${i}</div>`;
+    }
+    lineNumbers.innerHTML = lineNumbersContent;
+}
+
+// Manejo del evento 'click' para validar el texto ingresado
 document.getElementById('validateBtn')?.addEventListener('click', () => {
-    const inputText = (document.getElementById('inputText') as HTMLTextAreaElement).value;
-    const lines = inputText.split('\n');
+    const inputText = (document.getElementById('inputText') as HTMLTextAreaElement);
+    const lines = inputText.value.split('\n');
     let result = '';
 
     resetVariableData();
@@ -25,15 +27,7 @@ document.getElementById('validateBtn')?.addEventListener('click', () => {
     document.getElementById('result')!.innerHTML = result;
 });
 
-/**
- * Filtra y muestra las variables del tipo seleccionado al hacer clic en el botón 'filterBtn'.
- * 
- * - Toma el valor seleccionado en el select de tipo de datos.
- * - Verifica si hay variables del tipo seleccionado y las muestra.
- * - Si no hay variables del tipo especificado, muestra un mensaje de error.
- * 
- * @event click
- */
+// Manejo del evento 'click' para filtrar las variables
 document.getElementById('filterBtn')?.addEventListener('click', () => {
     const tipoDeDato = (document.getElementById('dataTypeSelect') as HTMLSelectElement).value.toLowerCase();
     const filterResult = document.getElementById('filterResult')!;
@@ -46,10 +40,26 @@ document.getElementById('filterBtn')?.addEventListener('click', () => {
         } else {
             filterResult.innerHTML = `No hay variables del tipo ${tipoDeDato}.`;
         }
-
     } else {
         filterResult.innerHTML = "Tipo de dato no válido o no existen variables de ese tipo.";
     }
 
     filterResult.style.display = 'block';
+});
+
+// Inicialización de la sincronización y actualización de números de línea
+document.addEventListener('DOMContentLoaded', () => {
+    const inputText = document.getElementById('inputText') as HTMLTextAreaElement;
+    const lineNumbers = document.getElementById('lineNumbers') as HTMLElement;
+
+    // Sincronizar el scroll del textarea con el contenedor de números de línea
+    inputText.addEventListener('scroll', () => {
+        lineNumbers.scrollTop = inputText.scrollTop;
+    });
+
+    // Actualizar los números de línea cuando el usuario escribe o edita el texto
+    inputText.addEventListener('input', () => updateLineNumbers(inputText, lineNumbers));
+
+    // Inicializar los números de línea al cargar la página
+    updateLineNumbers(inputText, lineNumbers);
 });
