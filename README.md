@@ -1,5 +1,8 @@
 # Simulación de un Analizador Léxico
 
+![Analizador-Lexico](https://github.com/user-attachments/assets/f4784fef-b200-4073-a8af-50b3c735ffc4)
+
+
 **Creador:** Juan Villalobos
 
 ## Descripción del Proyecto
