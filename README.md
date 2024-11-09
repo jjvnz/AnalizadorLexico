@@ -22,7 +22,7 @@ Este proyecto es una aplicación web para validar sentencias de declaración de 
 1. **Clona el Repositorio**
    
    ```bash
-   git clone git@github.com:jjvnz/AnalizadorLexico.git
+   git clone https://github.com/jjvnz/AnalizadorLexico.git
     ```
 
 ### Explicaciones del codigo fuente
